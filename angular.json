@@ -2,5 +2,128 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ngx-weather": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ngx-weather",
+      "sourceRoot": "projects/ngx-weather/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-weather",
+            "index": "projects/ngx-weather/src/index.html",
+            "main": "projects/ngx-weather/src/main.ts",
+            "polyfills": "projects/ngx-weather/src/polyfills.ts",
+            "tsConfig": "projects/ngx-weather/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/ngx-weather/src/favicon.ico",
+              "projects/ngx-weather/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-weather/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-weather/src/environments/environment.ts",
+                  "with": "projects/ngx-weather/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-weather:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-weather:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-weather:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-weather/src/test.ts",
+            "polyfills": "projects/ngx-weather/src/polyfills.ts",
+            "tsConfig": "projects/ngx-weather/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-weather/karma.conf.js",
+            "assets": [
+              "projects/ngx-weather/src/favicon.ico",
+              "projects/ngx-weather/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-weather/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-weather/tsconfig.app.json",
+              "projects/ngx-weather/tsconfig.spec.json",
+              "projects/ngx-weather/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngx-weather/e2e/protractor.conf.js",
+            "devServerTarget": "ngx-weather:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-weather:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "ngx-weather"
 }
