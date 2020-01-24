@@ -1,1 +1,113 @@
 /* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: $bg-gray;
+  margin: 0 auto;
+  padding-top: 75px;
+}
+
+p {
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-gray {
+  background-color: $bg-gray;
+}
+
+.container {
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+}
+
+.item {
+  flex: 1;
+  text-align: center;
+}
+
+.flex {
+  flex: 1;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex: wrap;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.column-reverse {
+  flex-direction: column-reverse;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.nowrap {
+	flex-wrap: nowrap;
+}
+.wrap {
+	flex-wrap: wrap;
+}
+.wrap-reverse {
+	flex-wrap: wrap-reverse;
+}
+
+.flex-content-start {
+	justify-content: flex-start;
+}
+
+.flex-content-end {
+	justify-content: flex-end;
+}
+
+.flex-content-center {
+	justify-content: center;
+}
+
+.flex-content-space-between {
+	justify-content: space-between;
+}
+
+.flex-content-space-around {
+	justify-content: space-around;
+}
+
+.stretch {
+	align-items: stretch;
+}
+
+.flex-items-start {
+	align-items: flex-start;
+}
+
+.flex-items-end {
+	align-items: flex-end;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.items-baseline {
+	align-items: baseline;
+}
+
+
+
