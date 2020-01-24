@@ -1,0 +1,18 @@
+@import '../../../variables.scss';
+
+.ngx-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  max-width: 100%;
+
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 2px 2px 0 $box-shadow-gray;
+  box-shadow: 0 2px 2px 0 $box-shadow-gray;
+
+  .logo-icon {
+    margin: 15px 0;
+  }
+}

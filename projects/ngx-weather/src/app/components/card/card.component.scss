@@ -1,0 +1,49 @@
+@import '../../../variables.scss';
+
+:host {
+  margin: 15px 30px;
+}
+
+.ngx-card {
+  background-color: #ffffff;
+  box-shadow: 1px 2px 2px 1px $box-shadow-gray;
+  border-radius: 4px;
+  width: 252px;
+  max-width: 252px;
+  text-align: center;
+
+  .card-header {
+    border-bottom: 1px solid $divider-gray;
+    color: $dark-gray;
+    font-size: 18px;
+    padding: 15px 0;
+  }
+
+  .card-footer {
+    padding: 18px;
+    background-color: $card-footer-gray;
+    span {
+      text-transform: uppercase;
+      color: $light-gray;
+      font-size: 12px;
+    }
+
+    p {
+      color: $dark-gray;
+      padding-top: 2px;
+    }
+    .item {
+      padding-bottom: 16px;
+    }
+
+    .updated-label {
+      color: $light-gray;
+      font-size: 12px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="ngx-card">
+  <div class="card-header">Urubici, BR</div>
+  <div class="card-content">
+    <ngx-degree-value [value]="'19°'"></ngx-degree-value>
+  </div>
+  <div *ngIf="active" class="card-footer display-flex wrap">
+    <div class="item">
+      <span>Humidity</span>
+      <p>75<small>%</small></p>
+    </div>
+    <div class="item">
+      <span>Pressure</span>
+      <p>892<small>hPa</small></p>
+    </div>
+    <small class="updated-label">Updated at 02:48:27 PM</small>
+  </div>
+</div>
