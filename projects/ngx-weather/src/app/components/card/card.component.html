@@ -1,17 +1,25 @@
 <div class="ngx-card">
-  <div class="card-header">Urubici, BR</div>
+  <div class="card-header">{{options?.city}}</div>
   <div class="card-content">
-    <ngx-degree-value [value]="'19°'"></ngx-degree-value>
+    <ngx-degree-value [value]="options?.degree"></ngx-degree-value>
+    <!-- <img class="loader-gif" height="50" src="../../../assets/loader.svg" alt="loader gif"> -->
   </div>
-  <div *ngIf="active" class="card-footer display-flex wrap">
-    <div class="item">
-      <span>Humidity</span>
-      <p>75<small>%</small></p>
-    </div>
-    <div class="item">
-      <span>Pressure</span>
-      <p>892<small>hPa</small></p>
-    </div>
-    <small class="updated-label">Updated at 02:48:27 PM</small>
+  <div class="card-footer display-flex wrap">
+    <ng-container *ngIf="active">
+      <div class="item">
+        <span>Humidity</span>
+        <p>{{options?.humidity}}<small>%</small></p>
+      </div>
+      <div class="item">
+        <span>Pressure</span>
+        <p>{{options?.pressure}}<small>hPa</small></p>
+      </div>
+    </ng-container>
+    <small class="updated-label">Updated at {{options?.updatedDate}}</small>
   </div>
 </div>
+
+<ng-template #exception>
+  <p class="error-label">Something went wrong</p>
+  <button type="button" class="btn">Try Again</button>
+</ng-template>

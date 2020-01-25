@@ -1,7 +1,7 @@
 <ngx-header></ngx-header>
 <div class="container display-flex wrap flex-content-center items-center" role="main">
-  <ngx-card [active]="false"></ngx-card>
-  <ngx-card [active]="true"></ngx-card>
-  <ngx-card [active]="false"></ngx-card>
+  <ngx-card [options]="{ city: 'Nuuk, GL', degree: -4, updatedDate: '00:18:45 PM' }" [active]="false"></ngx-card>
+  <ngx-card [options]="{ city: 'Urubici, BR', degree: 19, pressure: 752, humidity: 82, updatedDate: '00:18:45 PM' }" [ngStyle]="{order: 0}" [active]="true"></ngx-card>
+  <ngx-card [options]="{ city:  'Nairobi, KE', degree: 31, updatedDate: '00:18:45 PM' }" [active]="false"></ngx-card>
 </div>
 <router-outlet></router-outlet>

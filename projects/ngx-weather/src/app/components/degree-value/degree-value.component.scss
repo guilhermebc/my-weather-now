@@ -1,7 +1,20 @@
-p {
+@import '../../../variables.scss';
+
+.degree-value {
   text-align: center;
-  padding: 35px 0;
-  // font-weight: bold;
-  font-size: 82px;
+  padding: 25px 0;
+  font-size: 86px;
   letter-spacing: 1px;
+
+  &.cold {
+    color: $blue;
+  }
+
+  &.regular {
+    color: $orange;
+  }
+
+  &.hot {
+    color: $red;
+  }
 }

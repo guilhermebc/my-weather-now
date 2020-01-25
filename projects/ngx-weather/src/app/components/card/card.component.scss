@@ -1,7 +1,7 @@
 @import '../../../variables.scss';
 
 :host {
-  margin: 15px 30px;
+  margin: 15px 25px;
 }
 
 .ngx-card {
@@ -20,7 +20,7 @@
   }
 
   .card-footer {
-    padding: 18px;
+    padding: 15px 12px;
     background-color: $card-footer-gray;
     span {
       text-transform: uppercase;

@@ -21,7 +21,7 @@ p {
 }
 
 .container {
-  height: 100vh;
+  height: 90vh;
   margin: 0 auto;
   display: flex;
 }
@@ -109,5 +109,19 @@ p {
 	align-items: baseline;
 }
 
+.loader-gif {
+  margin: 50px auto;
+}
 
+.btn {
+  border-radius: 30px;
+  border: 2px solid $dark-gray;
+  padding: 12px 15px;
+  font-size: 16px;
+  color: $dark-gray;
+}
 
+.error-label {
+  padding: 20px 0;
+  color: $red;
+}
