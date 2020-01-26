@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { DegreeValueComponent } from './components/degree-value/degree-value.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     StoreModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
