@@ -9,6 +9,7 @@ import { CardComponent } from './components/card/card.component';
 import { DegreeValueComponent } from './components/degree-value/degree-value.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TemperatureConverterPipe } from './pipes/temperature-converter.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     CardComponent,
     DegreeValueComponent,
-    HeaderComponent
+    HeaderComponent,
+    TemperatureConverterPipe
   ],
   imports: [
     BrowserModule,
