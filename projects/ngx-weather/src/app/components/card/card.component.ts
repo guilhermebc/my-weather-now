@@ -1,9 +1,9 @@
-import { IWeather } from './../../shared/store/models/weather.model';
-import { GetCurrentWeather } from './../../shared/store/actions/weather.action';
-import { WeatherState } from './../../shared/store/states/weather.state';
 import { Component, OnInit, Input, OnDestroy, OnChanges } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
+import { IWeather } from './../../shared/store/models/weather.model';
+import { GetCurrentWeather } from './../../shared/store/actions/weather.action';
+import { WeatherState } from './../../shared/store/states/weather.state';
 
 @Component({
   selector: 'ngx-card',
