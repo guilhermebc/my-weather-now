@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from './services/weather.service';
+import { Store, Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { IWeather } from './shared/store/models/weather.model';
+import { WeatherState } from './shared/store/states/weather.state';
+import { GetCurrentWeather } from './shared/store/actions/weather.action';
 
 @Component({
   selector: 'ngx-root',
@@ -7,13 +11,8 @@ import { WeatherService } from './services/weather.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'ngx-weather';
 
-  constructor(private weatherService: WeatherService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.weatherService.getCurrentWeatherByCityName('Urubici,br').subscribe((data) => {
-      console.log(11, data);
-    });
-  }
+  ngOnInit() { }
 }
