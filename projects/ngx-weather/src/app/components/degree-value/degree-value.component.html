@@ -1,7 +1,7 @@
 <p class="degree-value flex-items-center"
   [ngClass]="{
-    'cold': value <= 5,
-    'regular': value > 5 && value <= 25,
-    'hot': value > 25
+    'cold': (value | temperatureConverter: 'C') <= 5,
+    'regular': (value | temperatureConverter: 'C') > 5 && (value | temperatureConverter: 'C') <= 25,
+    'hot': (value | temperatureConverter: 'C') > 25
   }"
->{{value}}°</p>
+>{{value | temperatureConverter: 'C'}}°</p>

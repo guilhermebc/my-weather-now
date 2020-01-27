@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DegreeValueComponent implements OnInit {
 
-  @Input() value: string;
+  @Input() value: number;
 
   constructor() { }
 
