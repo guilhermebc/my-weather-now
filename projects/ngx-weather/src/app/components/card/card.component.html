@@ -1,4 +1,5 @@
-<div class="ngx-card">
+<div class="ngx-card" [ngClass]="order ? order : ''"
+  (click)="onCardClicked($event)">
   <div class="card-header">{{city}}</div>
   <ng-container *ngIf="hasLoaded && !hasError">
     <div class="card-content">

@@ -1,10 +1,12 @@
 {
   "name": "my-weather-now",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "./node_modules/.bin/ng serve --proxy-config proxy.config.js --host 0.0.0.0",
     "build": "./node_modules/.bin/ng build",
+    "build-prod": "./node_modules/.bin/ng build --prod",
+    "npm-ci": "npm ci && npm run build-prod && npm run test-prod",
     "test": "./node_modules/.bin/ng test",
     "test-prod": "./node_modules/.bin/ng test --watch=false --browsers=ChromeHeadlessCI --code-coverage",
     "lint": "./node_modules/.bin/ng lint",

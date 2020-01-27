@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
+import { WeatherService } from './../../services/weather.service';
 import { IWeather } from './../../shared/store/models/weather.model';
 import { GetCurrentWeather } from './../../shared/store/actions/weather.action';
 import { WeatherState } from './../../shared/store/states/weather.state';
@@ -10,7 +11,7 @@ import { WeatherState } from './../../shared/store/states/weather.state';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit, OnChanges, OnDestroy {
+export class CardComponent implements OnInit, OnDestroy {
 
   @Input() city: string;
   @Input() order: string;
@@ -18,25 +19,22 @@ export class CardComponent implements OnInit, OnChanges, OnDestroy {
 
   @Select(WeatherState.getWeatherCities) cities$: Observable<IWeather[]>;
 
+  weatherSubscription: Subscription;
   citiesSubscription: Subscription;
   options: IWeather;
   hasLoaded = false;
   hasError = false;
 
-  constructor(private store: Store) { }
+  constructor(private store: Store, private weatherService: WeatherService) { }
 
   ngOnInit() {
     this.fetchWeatherCity();
 
     this.loadWeatherData();
-  }
 
-  ngOnChanges() {
-    if (this.citiesSubscription) {
-      this.citiesSubscription.unsubscribe();
-    }
-
-    this.loadWeatherData();
+    this.weatherSubscription = this.weatherService.toggleWeatheDetail().subscribe((value) => {
+      this.active = value === this.city;
+    });
   }
 
   fetchWeatherCity() {
@@ -62,7 +60,12 @@ export class CardComponent implements OnInit, OnChanges, OnDestroy {
     });
   }
 
+  onCardClicked(evt) {
+    this.weatherService.setActiveCard(this.city);
+  }
+
   ngOnDestroy() {
     this.citiesSubscription.unsubscribe();
+    this.weatherSubscription.unsubscribe();
   }
 }

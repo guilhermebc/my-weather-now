@@ -33,9 +33,9 @@ describe('DegreeValueComponent', () => {
 
   it('should class named cold be defined', () => {
     component.value = 250.15;
-    const cold = fixture.debugElement.nativeElement.querySelector('cold');
+    component.tempColorResolver();
     fixture.detectChanges();
 
-    expect(cold).toBeDefined();
+    expect(component.tempColor).toEqual('cold');
   });
 });

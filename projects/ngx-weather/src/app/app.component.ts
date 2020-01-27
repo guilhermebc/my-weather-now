@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { IWeather } from './shared/store/models/weather.model';
-import { WeatherState } from './shared/store/states/weather.state';
-import { GetCurrentWeather } from './shared/store/actions/weather.action';
+import { Subscription } from 'rxjs';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { WeatherService } from './services/weather.service';
+
 
 @Component({
   selector: 'ngx-root',
@@ -12,7 +10,21 @@ import { GetCurrentWeather } from './shared/store/actions/weather.action';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  weatherSubscription: Subscription;
+  activeCard;
 
-  ngOnInit() { }
+  constructor(private weatherService: WeatherService) { }
+
+  ngOnInit() {
+    this.weatherService.activeCard.next('Urubici, BR');
+
+    this.weatherService.activeCard.subscribe((data) => {
+      this.activeCard = data;
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  orderCard(cityName): boolean {
+    return this.activeCard === cityName && window.innerWidth < 992;
+  }
 }
