@@ -1,4 +1,3 @@
-import { UpdateLoader } from './../actions/weather.action';
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
