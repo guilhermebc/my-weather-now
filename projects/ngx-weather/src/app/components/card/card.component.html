@@ -1,25 +1,30 @@
 <div class="ngx-card">
-  <div class="card-header">{{options?.city}}</div>
-  <div class="card-content">
-    <ngx-degree-value [value]="options?.degree"></ngx-degree-value>
-    <!-- <img class="loader-gif" height="50" src="../../../assets/loader.svg" alt="loader gif"> -->
-  </div>
-  <div class="card-footer display-flex wrap">
-    <ng-container *ngIf="active">
-      <div class="item">
-        <span>Humidity</span>
-        <p>{{options?.humidity}}<small>%</small></p>
-      </div>
-      <div class="item">
-        <span>Pressure</span>
-        <p>{{options?.pressure}}<small>hPa</small></p>
-      </div>
-    </ng-container>
-    <small class="updated-label">Updated at {{options?.updatedDate}}</small>
-  </div>
+  <div class="card-header">{{city}}</div>
+  <ng-container *ngIf="hasLoaded && !hasError">
+    <div class="card-content">
+      <ngx-degree-value [value]="options?.degree"></ngx-degree-value>
+    </div>
+    <div class="card-footer display-flex wrap">
+      <ng-container *ngIf="active">
+        <div class="item">
+          <span>Humidity</span>
+          <p>{{options?.humidity}}<small>%</small></p>
+        </div>
+        <div class="item">
+          <span>Pressure</span>
+          <p>{{options?.pressure}}<small>hPa</small></p>
+        </div>
+      </ng-container>
+      <small class="updated-label">Updated at {{options?.updatedDate | date: 'H:mm:ss a'}}</small>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="hasLoaded && hasError">
+    <div class="exception-content">
+      <p class="error-label">Something went wrong</p>
+      <button type="button" class="btn" (click)="fetchWeatherCity()">Try Again</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!hasLoaded && !hasError">
+    <img class="loader-gif" height="50" src="../../../assets/loader.svg" alt="loader gif">
+  </ng-container>
 </div>
-
-<ng-template #exception>
-  <p class="error-label">Something went wrong</p>
-  <button type="button" class="btn">Try Again</button>
-</ng-template>
